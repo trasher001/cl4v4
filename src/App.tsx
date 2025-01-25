@@ -104,79 +104,79 @@ function App() {
   const profit = +(totalReturn - totalStake).toFixed(2);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-3 sm:p-6">
-      <div className="max-w-xl mx-auto bg-gray-900 rounded-xl shadow-2xl p-4 sm:p-6 text-gray-100 text-sm sm:text-base">
-        <div className="flex items-center gap-2 mb-4 sm:mb-6">
-          <Calculator className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
-          <h1 className="text-xl sm:text-2xl font-bold">Calculadora de Dutching</h1>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-3 sm:p-8">
+      <div className="max-w-xl sm:max-w-4xl mx-auto bg-gray-900 rounded-xl shadow-2xl p-4 sm:p-8 text-gray-100 text-sm sm:text-base">
+        <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
+          <Calculator className="w-6 h-6 sm:w-10 sm:h-10 text-blue-500" />
+          <h1 className="text-xl sm:text-3xl font-bold">Calculadora de Dutching</h1>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 mb-4 sm:mb-8">
           <div>
-            <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2">
+            <label className="block text-xs sm:text-base font-medium mb-1 sm:mb-2">
               Investimento (R$)
             </label>
             <input
               type="number"
               value={totalStake || ''}
               onChange={handleStakeChange}
-              className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-base sm:text-lg bg-black border border-gray-800 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-100"
+              className="w-full px-2 sm:px-4 py-1.5 sm:py-3 text-base sm:text-xl bg-black border border-gray-800 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-100"
             />
           </div>
-          <div className="space-y-1 sm:space-y-2">
+          <div className="space-y-1 sm:space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-xs sm:text-sm font-medium">Lucro:</span>
-              <span className={`text-base sm:text-lg font-semibold ${profit < 0 ? 'text-red-500' : 'text-green-500'}`}>
+              <span className="text-xs sm:text-base font-medium">Lucro:</span>
+              <span className={`text-base sm:text-xl font-semibold ${profit < 0 ? 'text-red-500' : 'text-green-500'}`}>
                 R$ {profit.toFixed(2)}
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-xs sm:text-sm font-medium">Retorno:</span>
-              <span className="text-base sm:text-lg font-semibold text-blue-500">R$ {totalReturn.toFixed(2)}</span>
+              <span className="text-xs sm:text-base font-medium">Retorno:</span>
+              <span className="text-base sm:text-xl font-semibold text-blue-500">R$ {totalReturn.toFixed(2)}</span>
             </div>
           </div>
         </div>
 
-        <div className="mb-4 sm:mb-6">
-          <div className="grid grid-cols-12 gap-1 sm:gap-2 mb-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-black rounded-t-lg">
-            <div className="col-span-1 text-xs sm:text-sm font-medium"></div>
-            <div className="col-span-3 sm:col-span-2 text-xs sm:text-sm font-medium">Odds</div>
-            <div className="col-span-4 text-xs sm:text-sm font-medium">Investimento</div>
-            <div className="col-span-3 sm:col-span-4 text-xs sm:text-sm font-medium">Retorno</div>
+        <div className="mb-4 sm:mb-8">
+          <div className="grid grid-cols-12 gap-1 sm:gap-4 mb-2 px-2 sm:px-4 py-1.5 sm:py-3 bg-black rounded-t-lg">
+            <div className="col-span-1 text-xs sm:text-base font-medium"></div>
+            <div className="col-span-3 sm:col-span-2 text-xs sm:text-base font-medium">Odds</div>
+            <div className="col-span-4 text-xs sm:text-base font-medium">Investimento</div>
+            <div className="col-span-3 sm:col-span-4 text-xs sm:text-base font-medium">Retorno</div>
             <div className="col-span-1"></div>
           </div>
 
           {bets.map((bet, index) => (
-            <div key={index} className="grid grid-cols-12 gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 items-center border-b border-gray-800">
-              <div className="col-span-1 text-xs sm:text-sm font-medium">{index + 1}º</div>
+            <div key={index} className="grid grid-cols-12 gap-1 sm:gap-4 px-2 sm:px-4 py-1.5 sm:py-3 items-center border-b border-gray-800">
+              <div className="col-span-1 text-xs sm:text-base font-medium">{index + 1}º</div>
               <div className="col-span-3 sm:col-span-2">
                 <input
                   type="text"
                   value={bet.odds || ''}
                   onChange={(e) => updateBet(index, e.target.value)}
-                  className="w-full px-2 py-1 bg-black border border-gray-800 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-100 text-sm sm:text-base"
+                  className="w-full px-2 sm:px-3 py-1 sm:py-2 bg-black border border-gray-800 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-100 text-sm sm:text-lg"
                   placeholder="0.00"
                 />
               </div>
-              <div className="col-span-4 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+              <div className="col-span-4 flex items-center gap-1 sm:gap-3 text-xs sm:text-base">
                 <span>R$ {bet.stake.toFixed(2)}</span>
                 <button
                   onClick={() => copyToClipboard(bet.stake)}
-                  className="p-0.5 sm:p-1 text-gray-500 hover:text-blue-400 hover:bg-black rounded transition-colors"
+                  className="p-0.5 sm:p-1.5 text-gray-500 hover:text-blue-400 hover:bg-black rounded transition-colors"
                 >
-                  <Copy className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <Copy className="w-3 h-3 sm:w-5 sm:h-5" />
                 </button>
               </div>
-              <div className="col-span-3 sm:col-span-4 text-xs sm:text-sm">
+              <div className="col-span-3 sm:col-span-4 text-xs sm:text-base">
                 R$ {(bet.odds * bet.stake).toFixed(2)}
               </div>
               <div className="col-span-1">
                 {bets.length > 2 && (
                   <button
                     onClick={() => removeBet(index)}
-                    className="p-0.5 sm:p-1 text-red-500 hover:text-red-400 hover:bg-black rounded transition-colors"
+                    className="p-0.5 sm:p-1.5 text-red-500 hover:text-red-400 hover:bg-black rounded transition-colors"
                   >
-                    <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <Trash2 className="w-3 h-3 sm:w-5 sm:h-5" />
                   </button>
                 )}
               </div>
@@ -187,16 +187,16 @@ function App() {
         <div className="flex gap-2 sm:gap-4">
           <button
             onClick={addNewBet}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-blue-400 border border-blue-500 rounded-md hover:bg-black transition-colors flex items-center gap-1 sm:gap-2"
+            className="px-3 sm:px-6 py-1.5 sm:py-3 text-xs sm:text-base font-medium text-blue-400 border border-blue-500 rounded-md hover:bg-black transition-colors flex items-center gap-1 sm:gap-2"
           >
-            <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Plus className="w-3 h-3 sm:w-5 sm:h-5" />
             Adicionar Linha
           </button>
           <button
             onClick={resetCalculator}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-red-400 border border-red-500 rounded-md hover:bg-black transition-colors flex items-center gap-1 sm:gap-2"
+            className="px-3 sm:px-6 py-1.5 sm:py-3 text-xs sm:text-base font-medium text-red-400 border border-red-500 rounded-md hover:bg-black transition-colors flex items-center gap-1 sm:gap-2"
           >
-            <RefreshCw className="w-3 h-3 sm:w-4 sm:h-4" />
+            <RefreshCw className="w-3 h-3 sm:w-5 sm:h-5" />
             Limpar
           </button>
         </div>
